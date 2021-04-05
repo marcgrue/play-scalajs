@@ -1,0 +1,8 @@
+
+# Pages
+GET     /                 controllers.FooController.index()
+GET     /ws               controllers.FooController.slothWebSocket
+POST    /ajax/*path       controllers.FooController.slothAjax(path: String)
+
+# Assets
+GET     /assets/*file     controllers.Assets.at(path="/public", file)

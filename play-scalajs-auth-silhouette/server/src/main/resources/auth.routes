@@ -1,0 +1,30 @@
+
+GET     /                                auth.controllers.ApplicationController.index
+GET     /signOut                         auth.controllers.ApplicationController.signOut
+
+GET     /signUp                          auth.controllers.SignUpController.view
+POST    /signUp                          auth.controllers.SignUpController.submit
+
+GET     /signIn                          auth.controllers.SignInController.view()
+POST    /signIn                          auth.controllers.SignInController.submit
+
+GET     /authenticate/:provider          auth.controllers.SocialAuthController.authenticate(provider)
+
+GET     /totp                            auth.controllers.TotpController.view(userId: java.util.UUID, sharedKey: String, rememberMe: Boolean)
+GET     /enableTotp                      auth.controllers.TotpController.enableTotp
+GET     /disableTotp                     auth.controllers.TotpController.disableTotp
+POST    /totpSubmit                      auth.controllers.TotpController.submit
+POST    /enableTotpSubmit                auth.controllers.TotpController.enableTotpSubmit
+
+GET     /totpRecovery                    auth.controllers.TotpRecoveryController.view(userID: java.util.UUID, sharedKey: String, rememberMe: Boolean)
+POST    /totpRecoverySubmit              auth.controllers.TotpRecoveryController.submit
+
+GET     /password/forgot                 auth.controllers.ForgotPasswordController.view
+POST    /password/forgot                 auth.controllers.ForgotPasswordController.submit
+GET     /password/reset/:token           auth.controllers.ResetPasswordController.view(token: java.util.UUID)
+POST    /password/reset/:token           auth.controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET     /password/change                 auth.controllers.ChangePasswordController.view
+POST    /password/change                 auth.controllers.ChangePasswordController.submit
+
+GET     /account/email/:email            auth.controllers.ActivateAccountController.send(email: String)
+GET     /account/activate/:token         auth.controllers.ActivateAccountController.activate(token: java.util.UUID)

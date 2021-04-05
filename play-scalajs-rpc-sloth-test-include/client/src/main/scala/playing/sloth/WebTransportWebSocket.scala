@@ -1,0 +1,55 @@
+package playing.sloth
+
+import java.nio.ByteBuffer
+import boopickle.Default._
+import org.scalajs.dom.raw.{CloseEvent, Event, MessageEvent, WebSocket}
+import org.scalajs.dom.window
+import sloth._
+import scala.concurrent.{Future, Promise}
+import scala.scalajs.js.typedarray.TypedArrayBufferOps.byteBufferOps
+import scala.scalajs.js.typedarray._
+
+object WebTransportWebSocket extends RequestTransport[ByteBuffer, Future] {
+
+  val socket = new WebSocket(s"ws://${window.location.host}/ws")
+  socket.binaryType = "arraybuffer"
+  socket.onerror = { e: Event =>
+    println(s"WebSocket error: $e!")
+    socket.close(0, e.toString)
+  }
+  socket.onclose = { _: CloseEvent =>
+    println("WebSocket closed")
+  }
+
+  override def apply(req: Request[ByteBuffer]): Future[ByteBuffer] = {
+    // Request
+    socket.readyState match {
+      case WebSocket.OPEN =>
+        socket.send(
+          Pickle.intoBytes((req.path, req.payload)).typedArray().buffer
+        )
+
+      case WebSocket.CONNECTING =>
+        println("WebSocket connecting...")
+        socket.onopen = { _: Event =>
+          println("WebSocket connected")
+          socket.send(
+            Pickle.intoBytes((req.path, req.payload)).typedArray().buffer
+          )
+        }
+
+      case _ =>
+        throw new IllegalStateException("Unexpected close/closing WebSocket")
+    }
+
+    // Response
+    val promise = Promise[ByteBuffer]
+    socket.onmessage = { e: MessageEvent =>
+      promise.trySuccess {
+        TypedArrayBuffer.wrap(e.data.asInstanceOf[ArrayBuffer])
+      }
+    }
+
+    promise.future
+  }
+}

@@ -1,0 +1,38 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background: #f5f7f9;
+    padding-left: 30px;
+}
+
+.provider {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    outline: none;
+    margin-right: 10px;
+}
+
+.provider img {
+    width: 42px;
+    height: 42px;
+}
+
+.facebook { background: #3B5998; }
+.google { background: #D14836; }
+.twitter { background: #00ACED; }
+.yahoo { background: #731A8B; }
+.xing { background: #006567; }
+.vk { background: #567ca4; }
+
+.homeTable tr td:nth-child(2) {
+    padding-left: 15px;
+}
+.homeTable img {
+    height: 80px;
+    border-radius: 6px;
+    border: #888;
+    border-style: solid;
+    border-width: 1px;
+}

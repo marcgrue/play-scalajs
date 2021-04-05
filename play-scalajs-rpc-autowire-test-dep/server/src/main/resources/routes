@@ -1,0 +1,8 @@
+
+# Pages
+GET     /                 controllers.FooController.index()
+GET     /foo/ws           controllers.FooController.autowireWebSocket
+POST    /foo/*path        controllers.FooController.autowireAjax(path: String)
+
+# Assets
+GET     /assets/*file     controllers.Assets.at(path="/public", file)

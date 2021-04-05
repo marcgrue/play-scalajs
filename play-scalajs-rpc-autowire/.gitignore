@@ -1,0 +1,5 @@
+target/
+playing-rpc-autowire/.idea
+.DS_Store
+*.class
+*.log

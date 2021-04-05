@@ -1,0 +1,11 @@
+
+# Authentication
+->          /                        auth.Routes
+->          /api/auth                auth.Routes
+
+# Domain paths
+GET         /secret                  controllers.MyController.secret
+GET         /public                  controllers.MyController.public
+
+# Static resources
+GET         /assets/*file            controllers.Assets.versioned(file)

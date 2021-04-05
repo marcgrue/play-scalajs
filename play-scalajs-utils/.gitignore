@@ -1,6 +1,5 @@
 target/
 .idea
-.bsp
 .DS_Store
 *.class
 *.log
