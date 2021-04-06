@@ -11,14 +11,17 @@ import scala.scalajs.js.typedarray._
 
 object WebTransportWebSocket extends RequestTransport[ByteBuffer, Future] {
 
-  val socket = new WebSocket(s"ws://${window.location.host}/ws")
-  socket.binaryType = "arraybuffer"
-  socket.onerror = { e: Event =>
-    println(s"WebSocket error: $e!")
-    socket.close(0, e.toString)
-  }
-  socket.onclose = { _: CloseEvent =>
-    println("WebSocket closed")
+  lazy val socket = {
+    val ws = new WebSocket(s"ws://${window.location.host}/ws")
+    ws.binaryType = "arraybuffer"
+    ws.onerror = { e: Event =>
+      println(s"WebSocket error: $e!")
+      ws.close(0, e.toString)
+    }
+    ws.onclose = { _: CloseEvent =>
+      println("WebSocket closed")
+    }
+    ws
   }
 
   override def apply(req: Request[ByteBuffer]): Future[ByteBuffer] = {

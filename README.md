@@ -20,7 +20,7 @@ Authentication with [Silhouette](https://www.silhouette.rocks):
 
 Rpc with [Sloth](https://github.com/cornerman/sloth):
 
-- `play-scalajs-rpc-sloth` published at `"com.marcgrue" %%% "playing-rpc-sloth" % "0.2.0"`
+- `play-scalajs-rpc-sloth` published at `"com.marcgrue" %%% "playing-rpc-sloth" % "0.2.1"`
 - `play-scalajs-rpc-sloth-test-dep` - Sample using dependency
 - `play-scalajs-rpc-sloth-test-inlcude` - Sample including library files
 

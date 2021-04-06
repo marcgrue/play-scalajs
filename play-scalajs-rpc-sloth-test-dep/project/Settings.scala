@@ -39,7 +39,7 @@ object Settings {
       //      "io.suzaku" %%% "boopickle" % "1.3.3",
       //      "com.github.cornerman" %%% "sloth" % "0.3.0",
       //      "com.marcgrue" %%% "playing-utils" % "0.1.0",
-      "com.marcgrue" %%% "playing-rpc-sloth" % "0.2.0"
+      "com.marcgrue" %%% "playing-rpc-sloth" % "0.2.1"
     )
   )
 }

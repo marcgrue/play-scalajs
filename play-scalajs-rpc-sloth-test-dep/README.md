@@ -6,7 +6,7 @@ Specially large projects with multiple apis can benefit from only having to conf
 
 Imports the following library to have the boilerplate code available:
 
-    "com.marcgrue" %%% "playing-rpc-sloth" % "0.2.0"
+    "com.marcgrue" %%% "playing-rpc-sloth" % "0.2.1"
 
 
 ## Shared API for both Ajax and WebSocket

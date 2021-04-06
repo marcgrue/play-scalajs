@@ -38,8 +38,6 @@ object Settings {
       "com.lihaoyi" %%% "autowire" % "0.3.3",
       "io.suzaku" %%% "boopickle" % "1.3.3",
       "com.marcgrue" %%% "playing-utils" % "0.1.0"
-      // Not imported since all files are included in the project
-      //      "com.marcgrue" %%% "playing-rpc-autowire" % "0.2.0"
     )
   )
 }

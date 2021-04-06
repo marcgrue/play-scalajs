@@ -1,5 +1,3 @@
-import sbtcrossproject.CrossPlugin.autoImport.crossProject
-
 lazy val root = (project in file("."))
   .aggregate(`playing-rpc-autowire`.js, `playing-rpc-autowire`.jvm)
   .settings(publish / skip := true)
