@@ -8,7 +8,6 @@ import webscalajs.WebScalaJS.autoImport.scalaJSPipeline
 object Settings {
 
   val base: Seq[Def.Setting[_]] = Seq(
-    name := "playing-auth-silhouette",
     organization := "com.marcgrue",
     version := "0.2.0-SNAPSHOT",
     ThisBuild / scalaVersion := "2.13.5",
@@ -23,14 +22,12 @@ object Settings {
   )
 
   val client: Seq[Def.Setting[_]] = Seq(
-    name := "client",
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "1.1.0"
     )
   )
 
   val server: Seq[Def.Setting[_]] = Seq(
-    name := "server",
     resolvers += Resolver.jcenterRepo,
     libraryDependencies ++= Seq(
       "com.mohiva" %% "play-silhouette" % "7.0.0" ,
@@ -53,11 +50,9 @@ object Settings {
     ),
     Assets / pipelineStages := Seq(scalaJSPipeline),
     Compile / compile := ((Compile / compile) dependsOn scalaJSPipeline).value,
-    Global / onLoad := (Global / onLoad).value andThen { s: State => "project server" :: s }
   )
 
   val shared: Seq[Def.Setting[_]] = base ++ Seq(
-    name := "shared",
     libraryDependencies ++= Seq(
       "com.lihaoyi" %%% "scalatags" % "0.9.4",
       "com.marcgrue" %%% "playing-utils" % "0.1.0"

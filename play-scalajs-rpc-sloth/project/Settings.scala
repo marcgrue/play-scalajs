@@ -48,8 +48,8 @@ object Settings {
     description := "playing-rpc-sloth",
     licenses := Seq("Apache 2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt")),
     scmInfo := Some(ScmInfo(
-      url("https://github.com/marcgrue/playing"),
-      "scm:git:git@github.com:marcgrue/playing.git"
+      url("https://github.com/marcgrue/play-scalajs"),
+      "scm:git:git@github.com:marcgrue/play-scalajs.git"
     )),
     developers := List(
       Developer(

@@ -1,7 +1,4 @@
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
-import play.sbt.PlayImport.guice
-import sbt.Keys._
-import sbt.{Def, _}
 
 
 object Settings {
@@ -45,8 +42,8 @@ object Settings {
     description := "playing-utils",
     licenses := Seq("Apache 2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt")),
     scmInfo := Some(ScmInfo(
-      url("https://github.com/marcgrue/playing"),
-      "scm:git:git@github.com:marcgrue/playing.git"
+      url("https://github.com/marcgrue/play-scalajs"),
+      "scm:git:git@github.com:marcgrue/play-scalajs.git"
     )),
     developers := List(
       Developer(
