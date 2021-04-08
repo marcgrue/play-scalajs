@@ -1,10 +1,7 @@
-import sbtcrossproject.CrossPlugin.autoImport.crossProject
-
-
 lazy val client = (project in file("client"))
   .dependsOn(shared.js)
+  .enablePlugins(ScalaJSPlugin, ScalaJSWeb)
   .settings(Settings.client)
-  .enablePlugins(ScalaJSWeb)
 
 
 lazy val server = (project in file("server"))
@@ -17,4 +14,5 @@ lazy val server = (project in file("server"))
 lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Pure)
   .in(file("shared"))
+  .jsConfigure(_.enablePlugins(ScalaJSWeb)) // Configures sourcemaps for shared code on remote hosts too
   .settings(Settings.shared)

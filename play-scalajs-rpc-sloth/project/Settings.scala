@@ -9,7 +9,7 @@ object Settings {
   private val base: Seq[Def.Setting[_]] = Seq(
     name := "playing-rpc-sloth",
     organization := "com.marcgrue",
-    version := "0.2.1",
+    version := "0.2.2-SNAPSHOT",
     ThisBuild / scalaVersion := "2.13.5",
     crossScalaVersions := Seq("2.12.13", "2.13.5")
   )
